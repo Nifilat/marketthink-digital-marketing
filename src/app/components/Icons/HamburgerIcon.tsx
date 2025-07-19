@@ -1,8 +1,6 @@
 import React from 'react';
 
-interface HamburgerIconProps extends React.SVGProps<SVGSVGElement> {}
-
-const HamburgerIcon: React.FC<HamburgerIconProps> = (props) => (
+const HamburgerIcon: React.FC<React.SVGProps<SVGSVGElement>> = (props) => (
   <svg
     width="28"
     height="28"
