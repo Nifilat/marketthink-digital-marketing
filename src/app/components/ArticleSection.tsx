@@ -197,18 +197,21 @@ export default function ArticleSection() {
           <h2 className="text-[42px] font-bold text-[#253D32] leading-normal mb-6 lg:mb-0 max-w-md">
             Read More Articles From Our Blog
           </h2>
-          <div className="flex gap-8 lg:mt-2">
+          <div className="flex gap-8 mt-8 lg:mt-8">
             {tabs.map((tab, idx) => (
               <button
                 key={tab.label}
-                className={`text-lg font-normal pb-2 border-b-2 transition-colors duration-200 cursor-pointer ${
+                className={`relative text-lg font-normal pb-2 transition-colors duration-200 cursor-pointer flex flex-col items-center ${
                   selectedTab === idx 
-                    ? 'text-[#253D32] border-[#98AA28]' 
-                    : 'text-[#808371] border-transparent hover:text-gray-600'
+                    ? 'text-[#253D32]' 
+                    : 'text-[#808371] hover:text-gray-600'
                 }`}
                 onClick={() => handleTabSwitch(idx)}
               >
-                {tab.label}
+                <span>{tab.label}</span>
+                {selectedTab === idx && (
+                  <span className="block mt-2" style={{ width: 104, height: 3, background: '#98AA28', borderRadius: 2 }} />
+                )}
               </button>
             ))}
           </div>
@@ -216,7 +219,7 @@ export default function ArticleSection() {
 
         {/* Articles Grid */}
         <div 
-          className={`flex flex-col lg:flex-row gap-6 items-stretch transition-all duration-300 ${
+          className={`flex flex-wrap gap-4 items-stretch transition-all duration-300 ${
             tabTransition ? 'opacity-0 translate-y-4' : 'opacity-100 translate-y-0'
           }`}
         >
@@ -225,14 +228,13 @@ export default function ArticleSection() {
             return (
               <div
                 key={article.id}
-                className={`bg-white cursor-pointer transition-all duration-300 flex flex-col overflow-hidden ${
-                  isSelected 
-                    ? 'flex-[2] transform scale-[1.02] z-10' 
-                    : 'flex-1 hover:transform hover:scale-[1.01]'
-                }`}
-                style={{ 
-                  minWidth: isSelected ? '400px' : '280px',
-                  maxWidth: isSelected ? '500px' : '320px'
+                className={`bg-white cursor-pointer flex flex-col overflow-hidden transition-[flex-basis] duration-300 ${isSelected ? 'z-10' : ''}`}
+                style={{
+                  flex: `1 1 ${isSelected ? '500px' : '280px'}`,
+                  minWidth: isSelected ? '320px' : '200px',
+                  maxWidth: '100%',
+                  transitionProperty: 'flex-basis',
+                  transitionDuration: '300ms',
                 }}
                 onClick={() => setSelectedArticle(idx)}
               >
@@ -260,8 +262,8 @@ export default function ArticleSection() {
                   </h3>
 
                   {/* Description */}
-                  {article.description && isSelected && (
-                    <p className="text-[#78847D] text-base mb-6 leading-relaxed flex-1">
+                  {article.description && (
+                    <p className={`text-[#78847D] text-base mb-6 leading-relaxed flex-1 ${!isSelected ? 'line-clamp-2' : ''}`}>
                       {article.description}
                     </p>
                   )}
