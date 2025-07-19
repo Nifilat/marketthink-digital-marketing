@@ -1,12 +1,28 @@
 "use client"
 import Image from 'next/image';
 import Logo from './Icons/Logo';
-import React, { useState } from 'react';
+import React, { useState, useRef } from 'react';
 import HamburgerIcon from './Icons/HamburgerIcon';
 import CloseIcon from './Icons/CloseIcon';
+import HorizontalLine from './Icons/HorizontalLine';
+import SquigglyLine from './Icons/SquigglyLine';
 
 export default function HeroSection() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+  const [sidebarVisible, setSidebarVisible] = useState(false);
+  const sidebarRef = useRef<HTMLDivElement>(null);
+
+  // Open sidebar
+  const openSidebar = () => {
+    setSidebarVisible(true);
+    setTimeout(() => setMobileMenuOpen(true), 10); // allow for mount before animating
+  };
+
+  // Close sidebar with animation
+  const closeSidebar = () => {
+    setMobileMenuOpen(false);
+    setTimeout(() => setSidebarVisible(false), 300); // match transition duration
+  };
 
   return (
     <section
@@ -62,33 +78,35 @@ export default function HeroSection() {
         <button
           className="md:hidden flex justify-center items-center w-10 h-10 rounded focus:outline-none focus:ring-2 focus:ring-white"
           aria-label="Open menu"
-          onClick={() => setMobileMenuOpen((open) => !open)}
+          onClick={openSidebar}
         >
           <HamburgerIcon />
         </button>
       </header>
       {/* Mobile sidebar nav */}
-      {mobileMenuOpen && (
+      {sidebarVisible && (
         <div className="fixed inset-0 z-50 md:hidden">
           {/* Sidebar */}
           <div
-            className="fixed top-0 right-0 h-full w-4/5 max-w-xs bg-[#1A2B22]/80 shadow-2xl transition-transform duration-300 ease-in-out z-50 backdrop-blur-sm"
+            ref={sidebarRef}
+            className={`fixed top-0 right-0 h-full w-4/5 max-w-xs bg-[#1A2B22]/80 shadow-2xl transition-transform duration-300 ease-in-out z-50 backdrop-blur-sm
+              ${mobileMenuOpen ? 'translate-x-0' : 'translate-x-full'}`}
           >
             <button
               className="absolute top-5 right-5 flex items-center justify-center w-10 h-10 rounded-full bg-[#EDFF81] hover:bg-[#d6ff7e] transition focus:outline-none"
               aria-label="Close menu"
-              onClick={() => setMobileMenuOpen(false)}
+              onClick={closeSidebar}
             >
               <CloseIcon />
             </button>
             <nav className="flex flex-col gap-8 text-white font-normal text-base items-center mt-24">
-              <a href="#features" onClick={() => setMobileMenuOpen(false)} className="hover:underline">Features</a>
-              <a href="#pricing" onClick={() => setMobileMenuOpen(false)} className="hover:underline">Pricing</a>
-              <a href="#about" onClick={() => setMobileMenuOpen(false)} className="hover:underline">About</a>
-              <a href="#contact" onClick={() => setMobileMenuOpen(false)} className="hover:underline">Contact Us</a>
+              <a href="#features" onClick={closeSidebar} className="hover:underline">Features</a>
+              <a href="#pricing" onClick={closeSidebar} className="hover:underline">Pricing</a>
+              <a href="#about" onClick={closeSidebar} className="hover:underline">About</a>
+              <a href="#contact" onClick={closeSidebar} className="hover:underline">Contact Us</a>
               <button
                 className="mt-8 rounded-full border border-[#EDFF8166] bg-white/10 text-white font-medium text-lg px-8 py-3 shadow-sm transition hover:scale-105 cursor-pointer"
-                onClick={() => setMobileMenuOpen(false)}
+                onClick={closeSidebar}
               >
                 Free Trial
               </button>
@@ -98,18 +116,23 @@ export default function HeroSection() {
       )}
       {/* Hero content */}
       <div className="relative z-30 flex flex-col items-center justify-center text-center mt-16 md:mt-28 px-4">
-        {/* Horizontal lines and subtitle */}
-        <div className="flex items-center gap-3 mb-2">
-          <img src="/assets/svgs/horizontal-line.svg" alt="line" className="h-1 w-6 md:w-8" />
-          <span className="text-gray-200 text-lg md:text-xl font-semibold">The Best</span>
-          <img src="/assets/svgs/horizontal-line.svg" alt="line" className="h-1 w-6 md:w-8" />
+        
+        <div className="flex items-center gap-5 mb-4">
+          <HorizontalLine />
+          <span className="text-white text-sm md:text-xl lg:text-4xl font-semibold">The Best</span>
+          <HorizontalLine />
         </div>
-        {/* Main title - single line with squiggly line centered below */}
-        <div className="relative flex flex-col items-center">
-          <h1 className="font-[Rubik] font-semibold text-[2.5rem] sm:text-5xl md:text-6xl lg:text-[90px] leading-[1] tracking-[0.04em] text-white mb-2">
-            Digital Marketing
+        
+        <div className="relative flex flex-col items-center mt-5">
+          <h1 className="font-semibold text-[2.5rem] md:text-6xl lg:text-[90px] leading-[1] tracking-[0.04em] text-white mb-2 relative inline-block">
+            Digital{' '}
+            <span className="relative inline-block">
+              Marketing
+              <span className="absolute left-0 w-full top-full flex justify-center">
+          <SquigglyLine className="w-full max-w-[100%]" />
+              </span>
+            </span>
           </h1>
-          <img src="/assets/svgs/sqiggly-line.svg" alt="squiggly underline" className="absolute right-[0px] -translate-x-1/2 bottom-0 " />
         </div>
         {/* Description */}
         <p className="text-gray-200 text-base md:text-lg max-w-xl md:max-w-2xl mt-6 mb-8">
