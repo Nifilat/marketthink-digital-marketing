@@ -14,14 +14,14 @@ const articles = [
     image: '/assets/images/digital-marketing.png',
     date: 'AUGUST 17, 2021',
     title: 'How to get hired at a top Digital Marketing',
-    description: 'Agency life. We’ve all seen the photos posted on social media – the cool...',
+    description: 'Agency life. We\'ve all seen the photos posted on social media – the cool...',
   },
   {
     id: 3,
     image: '/assets/images/copywriting.png',
     date: 'AUGUST 17, 2021',
     title: 'Copywriting guidelines during the coronavirus',
-    description: 'Since the coronavirus hit earlier this year, it’s hard to go anywhere...',
+    description: 'Since the coronavirus hit earlier this year, it\'s hard to go anywhere...',
   },
 ];
 
@@ -33,59 +33,108 @@ const tabs = [
 export default function ArticleSection() {
   const [selectedTab, setSelectedTab] = useState(0);
   const [selectedArticle, setSelectedArticle] = useState(0);
+  const [tabTransition, setTabTransition] = useState(false);
+
+  // Animate tab switch
+  const handleTabSwitch = (idx: number) => {
+    if (selectedTab !== idx) {
+      setTabTransition(true);
+      setTimeout(() => {
+        setSelectedTab(idx);
+        setSelectedArticle(0);
+        setTabTransition(false);
+      }, 250);
+    }
+  };
 
   return (
-    <section className="w-full bg-white py-16 px-4 md:px-0 font-[Rubik]">
+    <section className="w-full bg-white py-16 px-4 md:px-8 font-sans">
       <div className="max-w-7xl mx-auto">
-        <div className="flex flex-col md:flex-row md:items-center md:justify-between mb-8">
-          <h2 className="text-4xl md:text-5xl font-bold text-[#234336] leading-tight mb-4 md:mb-0">
+        {/* Header Section */}
+        <div className="flex flex-col lg:flex-row lg:items-start lg:justify-between mb-12">
+          <h2 className="text-4xl lg:text-[42px] font-bold text-[#253D32] leading-tight mb-6 lg:mb-0 max-w-md">
             Read More Articles<br />From Our Blog
           </h2>
-          <div className="flex gap-8 mt-2 md:mt-0 md:ml-auto">
+          <div className="flex gap-8 lg:mt-2">
             {tabs.map((tab, idx) => (
               <button
                 key={tab.label}
-                className={`text-xl font-medium pb-2 border-b-2 transition-colors duration-200 ${selectedTab === idx ? 'text-[#234336] border-[#D6FF7E]' : 'text-gray-400 border-transparent'}`}
-                onClick={() => { setSelectedTab(idx); setSelectedArticle(0); }}
+                className={`text-lg font-medium pb-2 border-b-2 transition-colors duration-200 ${
+                  selectedTab === idx 
+                    ? 'text-[#234336] border-[#D6FF7E]' 
+                    : 'text-gray-400 border-transparent hover:text-gray-600'
+                }`}
+                onClick={() => handleTabSwitch(idx)}
               >
                 {tab.label}
               </button>
             ))}
           </div>
         </div>
-        <div className="flex flex-col md:flex-row gap-8 items-stretch justify-center">
+
+        {/* Articles Grid */}
+        <div 
+          className={`grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 transition-all duration-300 ${
+            tabTransition ? 'opacity-0 translate-y-4' : 'opacity-100 translate-y-0'
+          }`}
+        >
           {articles.map((article, idx) => {
             const isSelected = selectedArticle === idx;
             return (
               <div
                 key={article.id}
-                className={`transition-all duration-300 bg-white rounded-xl shadow-sm border border-[#F4F4F4] flex flex-col cursor-pointer overflow-hidden
-                  ${isSelected ? 'scale-105 z-10 shadow-lg flex-[1.5]' : 'scale-95 opacity-80 flex-1'}
+                className={`bg-white border border-gray-200 cursor-pointer transition-all duration-300 hover:shadow-lg flex flex-col
+                  ${isSelected ? 'scale-105 shadow-xl z-10' : 'scale-100'}
                 `}
-                style={{ minWidth: 0, maxWidth: 400 }}
+                style={{ minHeight: 420 }}
                 onClick={() => setSelectedArticle(idx)}
               >
-                <div className="w-full aspect-[16/10] bg-gray-100 flex items-center justify-center">
+                {/* Image Container */}
+                <div className="w-full aspect-[16/10] bg-gray-100 overflow-hidden">
                   <img
                     src={article.image}
                     alt={article.title}
-                    className="object-cover w-full h-full"
+                    className="w-full h-full object-cover"
+                    onError={(e) => {
+                      // Fallback for missing images
+                      const target = e.target as HTMLImageElement;
+                      target.src = `data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='400' height='250'%3E%3Crect width='400' height='250' fill='%23f3f4f6'/%3E%3Ctext x='50%25' y='50%25' font-family='Arial' font-size='16' fill='%23666' text-anchor='middle' dy='.3em'%3E${article.title.split(' ')[0]} Image%3C/text%3E%3C/svg%3E`;
+                    }}
                   />
                 </div>
-                <div className="px-6 py-4 w-full flex-1 flex flex-col">
-                  <div className="text-xs text-gray-400 mb-2">{article.date}</div>
-                  <div className={`font-semibold text-[#234336] mb-2 ${isSelected ? 'text-xl md:text-2xl' : 'text-base md:text-lg'}`}>{article.title}</div>
-                  {article.description && <div className="text-gray-500 text-sm mb-4">{article.description}</div>}
-                  <div className="mt-auto flex justify-start">
+
+                {/* Content Container */}
+                <div className="p-6">
+                  {/* Date */}
+                  <div className="text-lg text-[#808371] mb-3 font-normal tracking-wide">
+                    {article.date}
+                  </div>
+
+                  {/* Title */}
+                  <h3 className={`font-medium text-[#253D32] mb-3 leading-tight ${
+                    isSelected ? 'text-xl lg:text-2xl' : 'text-lg'
+                  }`}>
+                    {article.title}
+                  </h3>
+
+                  {/* Description */}
+                  {article.description && (
+                    <p className="text-gray-600 text-sm mb-6 leading-relaxed">
+                      {article.description}
+                    </p>
+                  )}
+
+                  {/* Action Button */}
+                  <div className="flex justify-start">
                     {isSelected ? (
-                      <button className="px-8 py-2 border-2 border-[#D6FF7E] rounded-full text-[#234336] font-semibold bg-white hover:bg-[#F7FFD6] transition-all text-lg">
-                        Read More
-                      </button>
-                    ) : (
-                      <span className="w-12 h-12 flex items-center justify-center border-2 border-[#D6FF7E] rounded-full bg-white hover:bg-[#F7FFD6] transition-all">
-                        <img src="/assets/svgs/Show.svg" alt="Show" className="w-6 h-6" />
-                      </span>
-                    )}
+                      <button className="px-8 py-2 border border-[#A3B938] rounded-full text-[#98AA28] font-semibold bg-white hover:bg-[#F7FFD6] transition-all text-lg">
+                      Read More
+                    </button>
+                  ) : (
+                    <span className="w-12 h-12 flex items-center justify-center border border-[#A3B938] rounded-full bg-white hover:bg-[#F7FFD6] transition-all">
+                      <img src="/assets/svgs/Show.svg" alt="Show" className="w-6 h-6" />
+                    </span>
+                  )}
                   </div>
                 </div>
               </div>
@@ -95,4 +144,4 @@ export default function ArticleSection() {
       </div>
     </section>
   );
-} 
+}
