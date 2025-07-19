@@ -1,8 +1,6 @@
 import React from 'react';
 
-interface CloseIconProps extends React.SVGProps<SVGSVGElement> {}
-
-const CloseIcon: React.FC<CloseIconProps> = (props) => (
+const CloseIcon: React.FC<React.SVGProps<SVGSVGElement>> = (props) => (
   <svg
     width="22"
     height="22"

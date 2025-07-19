@@ -1,11 +1,11 @@
 "use client"
-import Image from 'next/image';
 import Logo from './Icons/Logo';
 import React, { useState, useRef } from 'react';
 import HamburgerIcon from './Icons/HamburgerIcon';
 import CloseIcon from './Icons/CloseIcon';
 import HorizontalLine from './Icons/HorizontalLine';
 import SquigglyLine from './Icons/SquigglyLine';
+import Image from 'next/image';
 
 export default function HeroSection() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
@@ -30,29 +30,37 @@ export default function HeroSection() {
       style={{ backgroundImage: 'url(/assets/images/background-image.png)' }}
     >
       {/* Left blocks */}
-      <img
+      <Image
         src="/assets/svgs/left-blocks.svg"
         alt="Left Blocks"
+        width={224}
+        height={200}
         className="absolute left-0 bottom-0 w-24 md:w-40 lg:w-56 z-10"
         aria-hidden
       />
       {/* Right blocks */}
-      <img
+      <Image
         src="/assets/svgs/hero-right-blocks.svg"
         alt="Right Blocks"
+        width={208}
+        height={200}
         className="absolute right-0 bottom-0 w-20 md:w-36 lg:w-52 z-10"
         aria-hidden
       />
       {/* V-shape lines (left and right diagonals) */}
-      <img
+      <Image
         src="/assets/svgs/left-diagonal.svg"
         alt="Left V-shape"
+        width={400}
+        height={100}
         className="absolute bottom-0 left-0 w-1/2 min-w-[180px] max-w-[50vw] z-20"
         aria-hidden
       />
-      <img
+      <Image
         src="/assets/svgs/right-diagonal.svg"
         alt="Right V-shape"
+        width={400}
+        height={100}
         className="absolute bottom-0 right-0 w-1/2 min-w-[180px] max-w-[50vw] z-20"
         aria-hidden
       />
