@@ -59,10 +59,10 @@ export default function ArticleSection() {
             {tabs.map((tab, idx) => (
               <button
                 key={tab.label}
-                className={`text-lg font-medium pb-2 border-b-2 transition-colors duration-200 ${
+                className={`text-lg font-normal pb-2 border-b-2 transition-colors duration-200 cursor-pointer ${
                   selectedTab === idx 
-                    ? 'text-[#234336] border-[#D6FF7E]' 
-                    : 'text-gray-400 border-transparent hover:text-gray-600'
+                    ? 'text-[#253D32] border-[#98AA28]' 
+                    : 'text-[#808371] border-transparent hover:text-gray-600'
                 }`}
                 onClick={() => handleTabSwitch(idx)}
               >
@@ -95,31 +95,26 @@ export default function ArticleSection() {
                     src={article.image}
                     alt={article.title}
                     className="w-full h-full object-cover"
-                    onError={(e) => {
-                      // Fallback for missing images
-                      const target = e.target as HTMLImageElement;
-                      target.src = `data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='400' height='250'%3E%3Crect width='400' height='250' fill='%23f3f4f6'/%3E%3Ctext x='50%25' y='50%25' font-family='Arial' font-size='16' fill='%23666' text-anchor='middle' dy='.3em'%3E${article.title.split(' ')[0]} Image%3C/text%3E%3C/svg%3E`;
-                    }}
                   />
                 </div>
 
                 {/* Content Container */}
                 <div className="p-6">
                   {/* Date */}
-                  <div className="text-lg text-[#808371] mb-3 font-normal tracking-wide">
+                  <p className={`mb-3 font-normal tracking-wide text-[#808371] ${isSelected ? 'text-lg' : 'text-sm'}`}>
                     {article.date}
-                  </div>
+                  </p>
 
                   {/* Title */}
                   <h3 className={`font-medium text-[#253D32] mb-3 leading-tight ${
-                    isSelected ? 'text-xl lg:text-2xl' : 'text-lg'
+                    isSelected ? 'text-xl' : 'text-lg'
                   }`}>
                     {article.title}
                   </h3>
 
                   {/* Description */}
                   {article.description && (
-                    <p className="text-gray-600 text-sm mb-6 leading-relaxed">
+                    <p className="text-[#78847D] text-lg mb-6 leading-relaxed">
                       {article.description}
                     </p>
                   )}
@@ -127,11 +122,14 @@ export default function ArticleSection() {
                   {/* Action Button */}
                   <div className="flex justify-start">
                     {isSelected ? (
-                      <button className="px-8 py-2 border border-[#A3B938] rounded-full text-[#98AA28] font-semibold bg-white hover:bg-[#F7FFD6] transition-all text-lg">
-                      Read More
-                    </button>
+                      <button
+                        className="px-12 py-5 border border-[#A3B938] rounded-full text-[#98AA28] font-semibold bg-white hover:bg-[#F7FFD6] transition-all text-xl shadow-[0px_34px_50px_0px_#073F4312]"
+                      >
+                        Read More
+                      </button>
                   ) : (
-                    <span className="w-12 h-12 flex items-center justify-center border border-[#A3B938] rounded-full bg-white hover:bg-[#F7FFD6] transition-all">
+                    <span className="w-12 h-12 flex items-center justify-center border border-[#A3B938] rounded-full bg-white hover:bg-[#F7FFD6] transition-all shadow-[0px_34px_50px_0px_#073F4312];
+">
                       <img src="/assets/svgs/Show.svg" alt="Show" className="w-6 h-6" />
                     </span>
                   )}
