@@ -1,6 +1,13 @@
+"use client"
 import Image from 'next/image';
+import Logo from './Icons/Logo';
+import React, { useState } from 'react';
+import HamburgerIcon from './Icons/HamburgerIcon';
+import CloseIcon from './Icons/CloseIcon';
 
 export default function HeroSection() {
+  const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+
   return (
     <section
       className="relative w-full min-h-screen flex flex-col items-center pt-[58px] overflow-hidden bg-no-repeat bg-cover font-[Rubik]"
@@ -34,8 +41,12 @@ export default function HeroSection() {
         aria-hidden
       />
       {/* Header and nav */}
-      <header className="w-full max-w-7xl flex justify-between items-center md:px-8 z-30">
-        <img src="/assets/svgs/logo.svg" alt="Marketthink Logo" className="h-8 md:h-10" />
+      <header className="w-full max-w-7xl flex justify-between items-center px-4 md:px-8 z-30">
+        <div className="flex items-center gap-2 md:gap-3">
+          <Logo className="h-7 md:h-10 w-7 md:w-8" />
+          <span className="text-white text-[26px] md:text-2xl font-bold tracking-[0.02em]">markethink</span>
+        </div>
+        {/* Desktop nav */}
         <nav className="hidden md:flex gap-8 lg:gap-12 text-white font-normal text-base">
           <a href="#features" className="hover:underline">Features</a>
           <a href="#pricing" className="hover:underline">Pricing</a>
@@ -43,12 +54,48 @@ export default function HeroSection() {
           <a href="#contact" className="hover:underline">Contact Us</a>
         </nav>
         <button
-          className="hidden md:block rounded-full border border-[#EDFF8166] bg-[#FFFFFF1A] text-white font-medium text-base px-6 py-2 md:px-8 md:py-3 lg:px-10 lg:py-3 shadow-sm transition hover:scale-105"
-          style={{ borderRadius: '116px', borderWidth: 1 }}
+          className="hidden md:block rounded-full border border-[#EDFF8166] bg-white/10 text-white font-medium text-base px-6 py-3 shadow-sm cursor-pointer transition hover:scale-105 md:px-6 md:py-3 lg:px-8 lg:py-3"
         >
           Free Trial
         </button>
+        {/* Hamburger menu button for mobile */}
+        <button
+          className="md:hidden flex justify-center items-center w-10 h-10 rounded focus:outline-none focus:ring-2 focus:ring-white"
+          aria-label="Open menu"
+          onClick={() => setMobileMenuOpen((open) => !open)}
+        >
+          <HamburgerIcon />
+        </button>
       </header>
+      {/* Mobile sidebar nav */}
+      {mobileMenuOpen && (
+        <div className="fixed inset-0 z-50 md:hidden">
+          {/* Sidebar */}
+          <div
+            className="fixed top-0 right-0 h-full w-4/5 max-w-xs bg-[#1A2B22]/80 shadow-2xl transition-transform duration-300 ease-in-out z-50 backdrop-blur-sm"
+          >
+            <button
+              className="absolute top-5 right-5 flex items-center justify-center w-10 h-10 rounded-full bg-[#EDFF81] hover:bg-[#d6ff7e] transition focus:outline-none"
+              aria-label="Close menu"
+              onClick={() => setMobileMenuOpen(false)}
+            >
+              <CloseIcon />
+            </button>
+            <nav className="flex flex-col gap-8 text-white font-normal text-base items-center mt-24">
+              <a href="#features" onClick={() => setMobileMenuOpen(false)} className="hover:underline">Features</a>
+              <a href="#pricing" onClick={() => setMobileMenuOpen(false)} className="hover:underline">Pricing</a>
+              <a href="#about" onClick={() => setMobileMenuOpen(false)} className="hover:underline">About</a>
+              <a href="#contact" onClick={() => setMobileMenuOpen(false)} className="hover:underline">Contact Us</a>
+              <button
+                className="mt-8 rounded-full border border-[#EDFF8166] bg-white/10 text-white font-medium text-lg px-8 py-3 shadow-sm transition hover:scale-105 cursor-pointer"
+                onClick={() => setMobileMenuOpen(false)}
+              >
+                Free Trial
+              </button>
+            </nav>
+          </div>
+        </div>
+      )}
       {/* Hero content */}
       <div className="relative z-30 flex flex-col items-center justify-center text-center mt-16 md:mt-28 px-4">
         {/* Horizontal lines and subtitle */}
