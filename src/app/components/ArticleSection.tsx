@@ -98,13 +98,13 @@ export default function ArticleSection() {
                 onClick={() => setSelectedArticle(idx)}
               >
                 {/* Image Container */}
-                <div className="w-full h-48 bg-white overflow-hidden flex items-center justify-start pl-6">
+                <div data-selected={isSelected} className="w-full data-[selected=true]:aspect-[540/343] aspect-[270/245] bg-white overflow-hidden flex items-center justify-start pl-6">
                   <Image
                     src={article.image}
                     alt={article.title}
                     width={200}
                     height={150}
-                    className="max-h-full object-contain"
+                    className="max-h-full w-full h-full object-cover"
                   />
                 </div>
 
