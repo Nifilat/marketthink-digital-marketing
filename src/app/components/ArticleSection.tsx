@@ -49,7 +49,7 @@ export default function ArticleSection() {
   };
 
   return (
-    <section className="w-full bg-white py-16 px-4 md:px-8 font-sans">
+    <section className="w-full bg-white py-16 px-12 md:px-8 font-sans">
       <div className="max-w-7xl mx-auto">
         {/* Header Section */}
         <div className="flex flex-col lg:flex-row lg:items-start lg:justify-between mb-12">
@@ -98,7 +98,7 @@ export default function ArticleSection() {
                 onClick={() => setSelectedArticle(idx)}
               >
                 {/* Image Container */}
-                <div data-selected={isSelected} className="w-full data-[selected=true]:aspect-[540/343] aspect-[270/245] bg-white overflow-hidden flex items-center justify-start pl-6">
+                <div data-selected={isSelected} className="w-full data-[selected=true]:aspect-[540/343] aspect-[270/245] bg-white overflow-hidden flex items-center justify-start ">
                   <Image
                     src={article.image}
                     alt={article.title}
@@ -109,7 +109,7 @@ export default function ArticleSection() {
                 </div>
 
                 {/* Content Container */}
-                <div className="p-6 flex flex-col flex-1">
+                <div className="pb-6 pt-6 py-6 flex flex-col flex-1">
                   {/* Date */}
                   <p className={`mb-3 font-normal tracking-wide text-[#808371] ${isSelected ? 'text-base' : 'text-sm'}`}>
                     {article.date}
