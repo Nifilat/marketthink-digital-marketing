@@ -121,10 +121,7 @@ export default function HeroSection() {
         </p>
         {/* Get Started button */}
         <button
-          className="mt-8 rounded-full border border-[#98AA28] text-white text-xl font-semibold px-8 py-4 md:px-12 md:py-5 shadow-[0px_34px_50px_0px_#073F4312] transition hover:scale-105"
-          style={{
-            background: 'linear-gradient(328.68deg, #98AA28 13.03%, #D6FF7E 120.61%)',
-          }}
+          className="mt-8 rounded-full border border-[#98AA28] bg-gradient-to-r from-[#98AA28] to-[#D6FF7E] text-white text-xl font-semibold px-8 py-4 md:px-12 md:py-5 shadow-[0px_34px_50px_0px_#073F4312] transition hover:scale-105 cursor-pointer"
         >
           Get Started
         </button>

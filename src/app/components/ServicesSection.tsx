@@ -28,14 +28,14 @@ const services = [
 
 export default function ServicesSection() {
   return (
-    <section className="w-full bg-white py-16 px-4 md:px-8">
+    <section className="w-full bg-white py-16 px-4 md:px-16">
       <div className="max-w-7xl mx-auto flex flex-col gap-16">
         {/* Top Row */}
         <div className="grid grid-cols-1 md:grid-cols-2 gap-12 items-start">
           {/* Left: Heading, description, see more */}
           <div>
-            <h2 className="text-3xl md:[42px] font-bold text-[#253D32] mb-6 leading-tight">We’re Strategic Digital Marketing Agency</h2>
-            <p className="text-[#78847D] text-base md:text-[22px] mb-6 max-w-lg leading-[40px]">
+            <h2 className="text-3xl md:[42px] font-bold text-[#253D32] mb-6 leading-[65px];">We’re Strategic Digital <br /> Marketing Agency</h2>
+            <p className="text-[#78847D] text-lg md:text-[22px] mb-6 max-w-lg leading-[40px]">
               We’ve created a full-stack structure for our working workflow processes, were from the funny the century initial all made, have spare to negatives
             </p>
             <a href="#" className="inline-flex items-center font-semibold transition group">
@@ -46,13 +46,11 @@ export default function ServicesSection() {
           {/* Right: Services grid */}
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-8">
             {services.map(({ Icon, title, desc }) => (
-              <div key={title} className="flex items-start gap-4">
-                <Icon className="w-12 h-12 flex-shrink-0" />
-                <div>
-                  <h3 className="font-bold text-lg text-[#253D32] mb-1">{title}</h3>
-                  <p className="text-[#78847D] text-sm md:text-base leading-snug">{desc}</p>
-                </div>
-              </div>
+              <div key={title} className="flex flex-col items-start gap-2">
+              <Icon className="w-12 h-12 mb-2" />
+              <h3 className="font-bold text-lg text-[#253D32] mb-1">{title}</h3>
+              <p className="text-[#78847D] text-sm md:text-base leading-snug">{desc}</p>
+            </div>
             ))}
           </div>
         </div>
@@ -68,7 +66,9 @@ export default function ServicesSection() {
           <div>
             <h3 className="text-2xl md:text-3xl font-bold text-[#253D32] mb-4 leading-tight">Increase Business on Social Media Reach</h3>
             <p className="text-[#253D32] text-base md:text-lg mb-8 max-w-lg">Using our network of industry influencers, we help promote your content</p>
-            <button className="rounded-full border border-[#98AA28] text-white text-xl font-semibold px-8 py-4 shadow-[0px_34px_50px_0px_#073F4312] transition hover:scale-105 bg-gradient-to-r from-[#98AA28] to-[#D6FF7E]">
+            <button
+              className="rounded-full text-white text-xl font-semibold px-8 py-4 md:px-12 md:py-5 shadow-[0px_34px_50px_0px_#073F4312] transition hover:scale-105 bg-gradient-to-r from-[#98AA28] to-[#D6FF7E] border border-transparent [border-image:linear-gradient(283.81deg,rgba(255,255,255,0.69)_11.22%,rgba(255,255,255,0.25)_89.57%)_1] cursor-pointer"
+            >
               Get Started
             </button>
           </div>
