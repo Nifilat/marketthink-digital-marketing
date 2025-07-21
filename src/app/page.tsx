@@ -1,5 +1,6 @@
 import ArticleSection from "./components/ArticleSection";
 import ContactSection from "./components/ContactSection";
+import Footer from "./components/Footer";
 import HeroSection from "./components/HeroSection";
 import PartnerSection from "./components/PartnerSection";
 import ProcessSection from "./components/ProcessSection";
@@ -14,6 +15,7 @@ export default function Home() {
       <ProcessSection />
       <ArticleSection />
       <ContactSection />
+      <Footer />
     </main>
   );
 }
