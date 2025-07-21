@@ -50,14 +50,14 @@ export default function ArticleSection() {
   };
 
   return (
-    <section className="w-full bg-white py-16 px-16 md:px-20">
+    <section className="w-full bg-white py-8 md:py-16 px-4 md:px-8 lg:px-16 xl:px-20">
       <div className="max-w-7xl mx-auto">
         {/* Header Section */}
         <div className="flex flex-col lg:flex-row lg:items-start lg:justify-between mb-12">
-          <h2 className="text-[42px] font-bold text-[#253D32] leading-normal mb-6 lg:mb-0 max-w-md">
+          <h2 className="text-2xl md:text-3xl lg:text-[42px] font-bold text-[#253D32] leading-normal mb-6 lg:mb-0 max-w-md">
             Read More Articles From Our Blog
           </h2>
-          <div className="flex gap-8 mt-8 lg:mt-8">
+          <div className="flex gap-4 md:gap-8 mt-4 lg:mt-8">
             {tabs.map((tab, idx) => (
               <button
                 key={tab.label}
