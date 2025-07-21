@@ -33,9 +33,6 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <head>
-        <link rel="icon" href="/icon/Category.png" type="image/png" />
-      </head>
       <body
         className={`${rubikSans.variable} ${geistSans.variable} ${geistMono.variable} antialiased`}
       >
