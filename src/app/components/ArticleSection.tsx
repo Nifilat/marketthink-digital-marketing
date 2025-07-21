@@ -8,7 +8,7 @@ const articles = [
     image: '/assets/images/SEO.png',
     date: 'AUGUST 17, 2021',
     title: '10 Reasons to invest in SEO copywriting services',
-    description: '',
+    description: 'SEO copywriting is essential for any business looking to improve its online presence.',
   },
   {
     id: 2,
@@ -24,6 +24,7 @@ const articles = [
     title: 'Copywriting guidelines during the coronavirus',
     description: 'Since the coronavirus hit earlier this year, it\'s hard to go anywhere...',
   },
+
 ];
 
 const tabs = [
@@ -49,7 +50,7 @@ export default function ArticleSection() {
   };
 
   return (
-    <section className="w-full bg-white py-16 px-12 md:px-8 font-sans">
+    <section className="w-full bg-white py-16 px-16 md:px-20">
       <div className="max-w-7xl mx-auto">
         {/* Header Section */}
         <div className="flex flex-col lg:flex-row lg:items-start lg:justify-between mb-12">
@@ -78,7 +79,7 @@ export default function ArticleSection() {
 
         {/* Articles Grid */}
         <div 
-          className={`flex flex-wrap gap-4 items-stretch transition-all duration-300 ${
+          className={`flex flex-wrap gap-6 items-stretch transition-all duration-300 ${
             tabTransition ? 'opacity-0 translate-y-4' : 'opacity-100 translate-y-0'
           }`}
         >

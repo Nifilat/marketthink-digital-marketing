@@ -28,7 +28,7 @@ export default function HeroSection() {
 
   return (
     <section
-      className="relative w-full min-h-[850px] flex flex-col items-center pt-14 overflow-hidden bg-no-repeat font-rubik bg-[url(/assets/svgs/hero.svg)] bg-cover bg-bottom"
+      className="relative w-full min-h-[850px] flex flex-col items-center pt-10 overflow-hidden bg-no-repeat font-rubik bg-[url(/assets/svgs/hero.svg)] bg-cover bg-bottom px-16 md:px-20"
 
     >
       {/* Background elements */}
@@ -121,7 +121,7 @@ export default function HeroSection() {
         </p>
         {/* Get Started button */}
         <button
-          className="mt-8 rounded-full border border-[#98AA28] bg-gradient-to-r from-[#98AA28] to-[#D6FF7E] text-white text-xl font-semibold px-8 py-4 md:px-12 md:py-5 shadow-[0px_34px_50px_0px_#073F4312] transition hover:scale-105 cursor-pointer"
+          className="mt-8 rounded-full border border-[#98AA28] bg-gradient-to-r from-[#98AA28] to-[#D6FF7E] text-white text-xl font-semibold px-8 py-4 md:px-12 md:py-3 shadow-[0px_34px_50px_0px_#073F4312] transition hover:scale-105 cursor-pointer"
         >
           Get Started
         </button>

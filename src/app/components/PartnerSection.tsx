@@ -13,7 +13,7 @@ const brands = [
 
 export default function PartnerSection() {
   return (
-    <section className="w-full bg-[#F6FBF9] pt-12 pb-12 overflow-hidden border-b border-[#F0F4F2]">
+    <section className="w-full bg-[#F6FBF9] pt-12 pb-12 px-16 md:px-20 overflow-hidden border-b border-[#F0F4F2]">
       <div className="relative w-full max-w-7xl mx-auto flex items-center justify-center">
         <Marquee
           gradient={false}

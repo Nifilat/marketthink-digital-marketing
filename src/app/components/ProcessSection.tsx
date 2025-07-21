@@ -22,11 +22,11 @@ export default function ProcessSection() {
   const [selected, setSelected] = useState(0);
 
   return (
-    <section className="w-full bg-[#F7FBF9] py-16 px-4 md:px-8 font-sans">
+    <section className="w-full bg-[#F7FBF9] py-16 px-16 md:px-20 font-sans">
       <div className="max-w-6xl mx-auto flex flex-col items-center">
         {/* Header */}
         <h2 className="text-4xl md:text-[42px] font-bold text-[#253D32] text-center mb-7">How Can We Help You?</h2>
-        <p className="text-[#78847D] text-xl md:text-[22px] text-center mb-12">Let's do great work together</p>
+        <p className="text-[#78847D] text-xl md:text-[22px] text-center mb-12">Let&apos;s do great work together</p>
 
         {/* Steps Row - Responsive (now using lg breakpoint) */}
         <div className="w-full flex flex-col items-center justify-center lg:flex-row lg:items-start lg:justify-between gap-0 mb-8 relative">
