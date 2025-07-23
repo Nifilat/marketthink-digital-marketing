@@ -8,15 +8,9 @@ interface HeaderProps {
   className?: string;
 }
 
-export default function Header({ 
-  openSidebar, 
-  variant = 'solid',
-  className = '' 
-}: HeaderProps) {
-  const baseClasses = "w-full z-50";
-  const variantClasses = variant === 'transparent' 
-    ? "bg-transparent" 
-    : "sticky top-0 bg-[#1A2B22]";
+export default function Header({ openSidebar, variant = 'solid', className = '' }: HeaderProps) {
+  const baseClasses = 'w-full z-50';
+  const variantClasses = variant === 'transparent' ? 'bg-transparent' : 'sticky top-0 bg-[#1A2B22]';
 
   return (
     <header className={`${baseClasses} ${variantClasses} ${className}`}>
@@ -29,10 +23,18 @@ export default function Header({
         </div>
 
         <nav className="hidden md:flex gap-8 lg:gap-12 text-white font-normal text-base">
-          <Link href="#features" className="hover:underline">Features</Link>
-          <Link href="#pricing" className="hover:underline">Pricing</Link>
-          <Link href="#about" className="hover:underline">About</Link>
-          <Link href="#contact" className="hover:underline">Contact Us</Link>
+          <Link href="#features" className="hover:underline">
+            Features
+          </Link>
+          <Link href="#pricing" className="hover:underline">
+            Pricing
+          </Link>
+          <Link href="#about" className="hover:underline">
+            About
+          </Link>
+          <Link href="#contact" className="hover:underline">
+            Contact Us
+          </Link>
         </nav>
 
         <button className="hidden md:block rounded-full border border-[#EDFF8166] bg-white/10 text-white font-medium text-base px-6 py-3 shadow-sm transition hover:scale-105">
