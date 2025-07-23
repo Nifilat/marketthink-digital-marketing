@@ -5,7 +5,6 @@ import dottedLine from './svgs/dottedLine.svg';
 import ServiceImage from './svgs/ServiceImage.svg';
 import facebook from './svgs/facebook.svg';
 import footerLogo from './svgs/footer-logo.svg';
-import hero from './svgs/hero.svg';
 import instagram from './svgs/instagram.svg';
 import left from './svgs/Left.svg';
 import leftEllipse from './svgs/LeftEllipse.svg';
@@ -21,7 +20,6 @@ export {
   ServiceImage,
   facebook,
   footerLogo,
-  hero,
   instagram,
   left,
   leftEllipse,

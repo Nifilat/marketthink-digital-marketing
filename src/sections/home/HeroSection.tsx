@@ -21,7 +21,7 @@ export default function HeroSection() {
   };
 
   return (
-    <section className="relative w-full min-h-[850px] flex flex-col items-center pt-10 overflow-hidden bg-no-repeat font-rubik bg-[url(/assets/svgs/hero.svg)] bg-cover bg-bottom">
+    <section className="relative w-full min-h-[850px] flex flex-col items-center pt-10 overflow-hidden bg-no-repeat font-rubik bg-[url(/assets/images/hero.svg)] bg-cover bg-bottom">
       {/* Background elements */}
       <Image
         src={leftEllipse}
