@@ -47,10 +47,10 @@ export default function ServicesSection() {
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-22">
             {services.map(({ Icon, title, desc }) => (
               <div key={title} className="flex flex-col items-start gap-2">
-              <Icon className="w-12 h-12 mb-2" />
-              <h3 className="font-bold text-lg text-[#253D32] mb-1">{title}</h3>
-              <p className="text-[#78847D] text-sm md:text-base leading-snug">{desc}</p>
-            </div>
+                <Icon className="w-12 h-12 mb-2" />
+                <h3 className="font-bold text-lg text-[#253D32] mb-1">{title}</h3>
+                <p className="text-[#78847D] text-sm md:text-base leading-snug">{desc}</p>
+              </div>
             ))}
           </div>
         </div>
@@ -58,9 +58,9 @@ export default function ServicesSection() {
         <div className="grid grid-cols-1 md:grid-cols-2 gap-12 items-center mb-30">
           {/* Left: Image */}
           <div className="flex justify-start items-center">
-            
-              <Image src="/assets/svgs/ServiceImage.svg" alt="Service Illustration" width={400} height={300} className="object-cover" />
-            
+
+            <Image src="/assets/svgs/ServiceImage.svg" alt="Service Illustration" width={400} height={300} className="object-cover" />
+
           </div>
           {/* Right: Social Media Reach */}
           <div>

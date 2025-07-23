@@ -1,6 +1,8 @@
 "use client";
 import React, { useState } from 'react';
 import ArrowRightIcon from '@/app/components/Icons/ArrowRightIcon';
+import VerticalDottedLine from '@/app/components/Icons/VerticalDottedLine';
+import { GreenPyramidIcon } from '@/app/components/Icons/ServiceIcons';
 import Image from 'next/image';
 
 const steps = [
@@ -36,28 +38,15 @@ export default function ProcessSection() {
                 {/* Reserve space for the largest circle in all steps */}
                 <div className="h-[100px] flex items-center justify-center">
                   <button
-                    className="focus:outline-none"
+                    className="focus:outline-none bg-transparent border-none p-0"
                     onClick={() => setSelected(idx)}
                     tabIndex={0}
                     aria-label={step.label}
-                    style={{ background: 'none', border: 'none', padding: 0 }}
                   >
                     {selected === idx ? (
                       <span className="w-[100px] h-[100px] rounded-full bg-white shadow-lg flex items-center justify-center transition-all duration-300">
-                        {/* Pyramid SVG */}
-                        <svg width="50" height="50" viewBox="0 0 50 50" fill="none" xmlns="http://www.w3.org/2000/svg">
-                          <g clipPath="url(#clip0_19_35)">
-                            <path d="M50 37.0713L25 0L0 37.0713L25 50L50 37.0713Z" fill="#C9F87C"/>
-                            <path d="M50 37.0713L25 0V50L50 37.0713Z" fill="#6BCD49"/>
-                            <path d="M25 24.1426L0 37.0713L25 50L50 37.0713L25 24.1426Z" fill="#5EBA3F"/>
-                            <path d="M25 24.1426V50L50 37.0713L25 24.1426Z" fill="#48962E"/>
-                          </g>
-                          <defs>
-                            <clipPath id="clip0_19_35">
-                              <rect width="50" height="50" fill="white"/>
-                            </clipPath>
-                          </defs>
-                        </svg>
+
+                        <GreenPyramidIcon />
                       </span>
                     ) : (
                       <span className="w-10 h-10 rounded-full border border-[#BFD6C5] flex items-center justify-center transition-all duration-300" />
@@ -67,7 +56,7 @@ export default function ProcessSection() {
                 {/* Label */}
                 <span
                   className={`mt-6 w-[180px] min-h-[66px] text-center text-[22px] leading-tight ${selected === idx ? 'font-semibold text-[#253D32]' : 'font-normal text-[#253D32]'}`}
-                  style={{lineHeight: '1.2'}}>
+                >
                   {step.label}
                 </span>
               </div>
@@ -86,9 +75,7 @@ export default function ProcessSection() {
                   </div>
                   {/* Vertical on mobile/tablet */}
                   <div className="flex lg:hidden items-center justify-center w-full h-12">
-                    <svg width="2" height="48" viewBox="0 0 2 48" fill="none" xmlns="http://www.w3.org/2000/svg">
-                      <path d="M1 1V47" stroke="#A2BDAA" strokeLinecap="square" strokeDasharray="10 10"/>
-                    </svg>
+                    <VerticalDottedLine />
                   </div>
                 </>
               )}

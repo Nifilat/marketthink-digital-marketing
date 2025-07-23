@@ -22,7 +22,7 @@ export default function PartnerSection() {
           className="w-full"
         >
           {brands.map(({ Icon, key }) => (
-            <div key={key} className="flex-shrink-0 flex items-center justify-center px-8 md:px-12" style={{ minWidth: 160 }}>
+            <div key={key} className="flex-shrink-0 flex items-center justify-center px-8 md:px-12 min-w-40">
               <Icon />
             </div>
           ))}

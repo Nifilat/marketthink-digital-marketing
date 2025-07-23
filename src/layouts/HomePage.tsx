@@ -12,9 +12,9 @@ export default function HomePage() {
   return (
     <main>
       <HeroSection />
+      <PartnerSection />
       <ServicesSection />
       <ProcessSection />
-      <PartnerSection />
       <ArticleSection />
       <ContactSection />
       <Footer />
