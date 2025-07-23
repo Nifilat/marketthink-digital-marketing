@@ -1,6 +1,6 @@
 import React from 'react';
 import Image from 'next/image';
-import Logo from './Icons/Logo';
+import Logo from '@/app/components/Icons/Logo';
 
 export default function ContactSection() {
   return (

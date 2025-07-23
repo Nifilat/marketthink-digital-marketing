@@ -1,7 +1,7 @@
 "use client";
 import React from 'react';
 import Marquee from 'react-fast-marquee';
-import { SlackIcon, AmazonIcon, LogitechIcon, GoogleIcon, FacebookIcon } from './Icons/BrandIcons';
+import { SlackIcon, AmazonIcon, LogitechIcon, GoogleIcon, FacebookIcon } from '@/app/components/Icons/BrandIcons';
 
 const brands = [
   { Icon: SlackIcon, key: 'slack' },

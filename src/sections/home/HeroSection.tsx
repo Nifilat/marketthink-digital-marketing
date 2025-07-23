@@ -1,10 +1,10 @@
 "use client"
-import Logo from './Icons/Logo';
+import Logo from '@/app/components/Icons/Logo';
 import React, { useState, useRef } from 'react';
-import HamburgerIcon from './Icons/HamburgerIcon';
-import CloseIcon from './Icons/CloseIcon';
-import HorizontalLine from './Icons/HorizontalLine';
-import SquigglyLine from './Icons/SquigglyLine';
+import HamburgerIcon from '@/app/components/Icons/HamburgerIcon';
+import CloseIcon from '@/app/components/Icons/CloseIcon';
+import HorizontalLine from '@/app/components/Icons/HorizontalLine';
+import SquigglyLine from '@/app/components/Icons/SquigglyLine';
 
 import Image from 'next/image';
 import Link from 'next/link';

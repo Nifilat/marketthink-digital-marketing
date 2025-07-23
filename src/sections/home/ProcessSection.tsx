@@ -1,6 +1,6 @@
 "use client";
 import React, { useState } from 'react';
-import ArrowRightIcon from './Icons/ArrowRightIcon';
+import ArrowRightIcon from '@/app/components/Icons/ArrowRightIcon';
 import Image from 'next/image';
 
 const steps = [

@@ -1,6 +1,6 @@
 import React from 'react';
-import { CubeIcon, PyramidIcon, CircleIcon, TriangleIcon } from './Icons/ServiceIcons';
-import ArrowRightIcon from './Icons/ArrowRightIcon';
+import { CubeIcon, PyramidIcon, CircleIcon, TriangleIcon } from '@/app/components/Icons/ServiceIcons';
+import ArrowRightIcon from '@/app/components/Icons/ArrowRightIcon';
 import Image from 'next/image';
 
 const services = [
