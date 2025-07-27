@@ -1,12 +1,8 @@
 'use client';
 import Link from 'next/link';
 import { Logo, HamburgerIcon } from '../icons';
+import { HeaderProps } from '@/types';
 
-interface HeaderProps {
-  openSidebar: () => void;
-  variant?: 'transparent' | 'solid';
-  className?: string;
-}
 
 export default function Header({ openSidebar, variant = 'solid', className = '' }: HeaderProps) {
   const baseClasses = 'w-full z-50';

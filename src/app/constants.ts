@@ -9,6 +9,7 @@ import {
   CircleIcon,
   TriangleIcon,
 } from '@/app/icons';
+import { facebook, twitter, instagram } from '@/assets';
 
 export const articles = [
   {
@@ -82,5 +83,42 @@ export const services = [
     Icon: TriangleIcon,
     title: 'Content Optimization',
     desc: 'Your content marketing management services also include SEO',
+  },
+];
+
+export const socialLinks = [
+  { href: '#', alt: 'Facebook', icon: facebook },
+  { href: '#', alt: 'Twitter', icon: twitter },
+  { href: '#', alt: 'Instagram', icon: instagram },
+];
+
+export const footerSections = [
+  {
+    title: 'Menu',
+    links: [
+      { href: '/', label: 'Home' },
+      { href: '/features', label: 'Features' },
+      { href: '/pricing', label: 'Pricing' },
+      { href: '/contact', label: 'Contact Us' },
+    ],
+  },
+  {
+    title: 'Services',
+    links: [
+      { href: '/services/strategy', label: 'Content Strategy' },
+      { href: '/services/development', label: 'Content Development' },
+      { href: '/services/creation', label: 'Content Creation' },
+      { href: '/services/optimization', label: 'Content Optimization' },
+    ],
+  },
+  {
+    title: 'Company',
+    links: [
+      { href: '/sitemap', label: 'Site Map' },
+      { href: '/terms', label: 'Terms of Use' },
+      { href: '/privacy', label: 'Privacy Notice' },
+      { href: '/cookies', label: 'Cookies' },
+      { href: '/slavery-policy', label: 'Modern Slavery' },
+    ],
   },
 ];

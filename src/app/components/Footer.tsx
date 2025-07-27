@@ -1,6 +1,9 @@
 import Image from 'next/image';
-import { footerLogo, facebook, instagram, twitter } from '@/assets';
+import { footerLogo } from '@/assets';
 import FooterLink from './FooterLink';
+import SocialLink from './SocialLink';
+import { socialLinks } from '../constants';
+import { footerSections } from '../constants';
 
 export default function Footer() {
   return (
@@ -19,56 +22,22 @@ export default function Footer() {
               digital marketing
             </p>
             <div className="flex gap-4 mt-2">
-              <a
-                href="#"
-                aria-label="Facebook"
-                className="rounded-full  w-10 h-10 flex items-center justify-center  transition"
-              >
-                <Image src={facebook} alt="Facebook" width={40} height={40} />
-              </a>
-              <a
-                href="#"
-                aria-label="Twitter"
-                className="rounded-full  w-10 h-10 flex items-center justify-center  transition"
-              >
-                <Image src={twitter} alt="Twitter" width={40} height={40} />
-              </a>
-              <a
-                href="#"
-                aria-label="Instagram"
-                className="rounded-full  w-10 h-10 flex items-center justify-center  transition"
-              >
-                <Image src={instagram} alt="Instagram" width={40} height={40} />
-              </a>
+              {socialLinks.map(({ href, alt, icon }) => (
+                <SocialLink key={alt} href={href} alt={alt} icon={icon} />
+              ))}
             </div>
           </div>
-          {/* Menu */}
-          <div className="flex flex-col gap-2 md:pl-12">
-            <h4 className="text-[#253D32] text-xl font-bold mb-2">Menu</h4>
-            <FooterLink href="/">Home</FooterLink>
-            <FooterLink href="/features">Features</FooterLink>
-            <FooterLink href="/pricing">Pricing</FooterLink>
-            <FooterLink href="/contact">Contact Us</FooterLink>
-          </div>
-
-          {/* Services */}
-          <div className="flex flex-col gap-2 md:pl-12">
-            <h4 className="text-[#253D32] text-xl font-bold mb-2">Services</h4>
-            <FooterLink href="/services/strategy">Content Strategy</FooterLink>
-            <FooterLink href="/services/development">Content Development</FooterLink>
-            <FooterLink href="/services/creation">Content Creation</FooterLink>
-            <FooterLink href="/services/optimization">Content Optimization</FooterLink>
-          </div>
-
-          {/* Company */}
-          <div className="flex flex-col gap-2 md:pl-12">
-            <h4 className="text-[#253D32] text-xl font-bold mb-2">Company</h4>
-            <FooterLink href="/sitemap">Site Map</FooterLink>
-            <FooterLink href="/terms">Terms of Use</FooterLink>
-            <FooterLink href="/privacy">Privacy Notice</FooterLink>
-            <FooterLink href="/cookies">Cookies</FooterLink>
-            <FooterLink href="/slavery-policy">Modern Slavery</FooterLink>
-          </div>
+          {/* Footer Links */}
+          {footerSections.map(section => (
+            <div key={section.title} className="flex flex-col gap-2 md:pl-12">
+              <h4 className="text-[#253D32] text-xl font-bold mb-2">{section.title}</h4>
+              {section.links.map(({ href, label }) => (
+                <FooterLink key={href} href={href}>
+                  {label}
+                </FooterLink>
+              ))}
+            </div>
+          ))}
         </div>
 
         <div className="border-t border-[#E6EAE6] my-8" />

@@ -1,16 +1,18 @@
 'use client';
 
 import Link from 'next/link';
-import { ReactNode } from 'react';
+import { ReactNode, AnchorHTMLAttributes } from 'react';
+import clsx from 'clsx';
+import { FooterLinkProps } from '@/types';
 
-interface FooterLinkProps {
-  href: string;
-  children: ReactNode;
-}
 
-const FooterLink = ({ href, children }: FooterLinkProps) => {
+const FooterLink = ({ href, children, className, ...props }: FooterLinkProps) => {
   return (
-    <Link href={href} className="text-[#78847D] text-base hover:text-[#253D32] transition">
+    <Link
+      href={href}
+      className={clsx('text-[#78847D] text-base hover:text-[#253D32] transition', className)}
+      {...props}
+    >
       {children}
     </Link>
   );
