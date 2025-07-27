@@ -2,8 +2,8 @@ import Image from 'next/image';
 import { footerLogo } from '@/assets';
 import FooterLink from './FooterLink';
 import SocialLink from './SocialLink';
-import { socialLinks } from '../constants';
-import { footerSections } from '../constants';
+import { socialLinks } from '../../constants';
+import { footerSections } from '../../constants';
 
 export default function Footer() {
   return (

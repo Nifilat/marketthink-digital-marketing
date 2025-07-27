@@ -6,7 +6,7 @@ import {
   ArticleSection,
   ContactSection,
 } from '@/sections/index';
-import Footer from '@/app/components/Footer';
+import Footer from '@/app/components/footer/Footer';
 
 export default function HomePage() {
   return (

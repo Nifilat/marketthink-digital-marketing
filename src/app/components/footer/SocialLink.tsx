@@ -1,4 +1,4 @@
-import Image, { StaticImageData } from 'next/image';
+import Image from 'next/image';
 import FooterLink from './FooterLink';
 import { SocialLinkProps } from '@/types';
 

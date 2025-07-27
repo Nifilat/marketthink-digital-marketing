@@ -1,7 +1,6 @@
 'use client';
 
 import Link from 'next/link';
-import { ReactNode, AnchorHTMLAttributes } from 'react';
 import clsx from 'clsx';
 import { FooterLinkProps } from '@/types';
 
