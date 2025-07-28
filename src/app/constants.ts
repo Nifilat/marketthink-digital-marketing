@@ -9,7 +9,7 @@ import {
   CircleIcon,
   TriangleIcon,
 } from '@/app/icons';
-import { facebook, twitter, instagram, leftEllipse, right, left, rightEllipse } from '@/assets';
+import { facebook, twitter, instagram, leftEllipse, right, left, rightEllipse } from '../../public/assets';
 
 export const navLinks = [
   { href: '#features', label: 'Features' },

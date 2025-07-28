@@ -1,7 +1,7 @@
 import Image from 'next/image';
 import { ArrowRightIcon } from '@/app/icons';
 import { services } from '@/app/constants';
-import { ServiceImage } from '@/assets';
+import { ServiceImage } from '../../../public/assets';
 
 export default function ServicesSection() {
   return (

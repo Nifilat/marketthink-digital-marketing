@@ -2,7 +2,7 @@
 import { useState } from 'react';
 import Image from 'next/image';
 import { articles, tabs, TAB_TRANSITION_DELAY_MS } from '@/app/constants';
-import { show } from '@/assets';
+import { show } from '../../../public/assets';
 
 export default function ArticleSection() {
   const [selectedTab, setSelectedTab] = useState(0);

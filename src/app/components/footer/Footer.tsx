@@ -1,5 +1,5 @@
 import Image from 'next/image';
-import { footerLogo } from '@/assets';
+import { footerLogo } from '../../../../public/assets';
 import FooterLink from './FooterLink';
 import SocialLink from './SocialLink';
 import { socialLinks } from '../../constants';

@@ -1,6 +1,6 @@
 import Image from 'next/image';
 import { Logo } from '@/app/icons';
-import { contactBlock, bgImage, right } from '@/assets';
+import { contactBlock, bgImage, right } from '../../../public/assets';
 
 export default function ContactSection() {
   return (

@@ -1,7 +1,7 @@
 'use client';
 import React, { useState } from 'react';
 import Image from 'next/image';
-import { dottedLine } from '@/assets';
+import { dottedLine } from '../../../public/assets';
 import { steps } from '@/app/constants';
 import { ArrowRightIcon, VerticalDottedLine, GreenPyramidIcon } from '@/app/icons';
 

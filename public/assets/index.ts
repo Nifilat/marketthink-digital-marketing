@@ -1,5 +1,6 @@
 import show from './svgs/Show.svg';
 import bgImage from './svgs/bg-image.svg';
+import hero from './svgs/hero.svg';
 import contactBlock from './svgs/contact-block.svg';
 import dottedLine from './svgs/dottedLine.svg';
 import ServiceImage from './svgs/ServiceImage.svg';
@@ -15,6 +16,7 @@ import twitter from './svgs/twitter.svg';
 export {
   show,
   bgImage,
+  hero,
   contactBlock,
   dottedLine,
   ServiceImage,
