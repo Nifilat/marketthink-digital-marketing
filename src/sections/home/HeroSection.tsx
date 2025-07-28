@@ -1,57 +1,23 @@
 'use client';
-import Header from '@/app/components/Header';
-import MobileNavbar from '@/app/components/MobileNavbar';
-import { SquigglyLine, HorizontalLine } from '@/app/icons';
-import { leftEllipse, rightEllipse, left, right } from '@/assets';
-import React, { useState } from 'react';
 import Image from 'next/image';
+import { SquigglyLine, HorizontalLine } from '@/app/icons';
+import { heroImages } from '@/app/constants';
 
 export default function HeroSection() {
-  const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
-
-  const openSidebar = () => setMobileMenuOpen(true);
-  const closeSidebar = () => setMobileMenuOpen(false);
-
   return (
     <>
-      <Header openSidebar={openSidebar} variant="solid" />
-
-      <MobileNavbar visible={mobileMenuOpen} onClose={closeSidebar} />
-
       <section className="relative w-full min-h-[850px] flex flex-col items-center pt-10 overflow-hidden bg-no-repeat font-rubik bg-[url(/assets/images/hero.svg)] bg-cover bg-bottom">
         {/* Background elements */}
-        <Image
-          src={leftEllipse}
-          alt="Left Ellipse"
-          fill={false}
-          width={300}
-          height={300}
-          className="absolute left-1/20 top-1/10"
-        />
-        <Image
-          src={rightEllipse}
-          alt=""
-          fill={false}
-          width={300}
-          height={300}
-          className="absolute right-0 translate-x-1/3 top-1/10"
-        />
-        <Image
-          src={left}
-          alt="Left block"
-          fill={false}
-          width={400}
-          height={400}
-          className="absolute left-0 bottom-0 -translate-x-[28%] translate-y-[6%] w-[27vw] min-w-[200px]"
-        />
-        <Image
-          src={right}
-          alt="Right block"
-          fill={false}
-          width={300}
-          height={300}
-          className="absolute right-0 bottom-0 translate-x-1/2 translate-y-1/10 w-[18vw] min-w-[150px]"
-        />
+        {heroImages.map((img, i) => (
+          <Image
+            key={i}
+            src={img.src}
+            alt={img.alt}
+            className={img.className}
+            width={img.width}
+            height={img.height}
+          />
+        ))}
 
         {/* Hero content */}
         <div className="relative z-30 flex flex-col items-center justify-center text-center mt-16 md:mt-28 px-4">

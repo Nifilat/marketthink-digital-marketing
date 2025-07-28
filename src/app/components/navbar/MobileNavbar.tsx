@@ -1,7 +1,8 @@
 'use client';
-import Link from 'next/link';
 import { useRef, useEffect } from 'react';
-import { CloseIcon } from '../icons';
+import Link from 'next/link';
+import { CloseIcon } from '../../icons';
+import { navLinks } from '@/app/constants';
 
 export default function MobileNavbar({
   visible,
@@ -52,37 +53,11 @@ export default function MobileNavbar({
         </button>
 
         <nav className="flex flex-col gap-15 text-white font-normal text-base items-center justify-start pt-15 h-full px-6">
-          <Link
-            href="#features"
-            onClick={onClose}
-            className="hover:text-[#EDFF81] transition-colors text-lg"
-          >
-            Features
-          </Link>
-
-          <Link
-            href="#pricing"
-            onClick={onClose}
-            className="hover:text-[#EDFF81] transition-colors text-lg"
-          >
-            Pricing
-          </Link>
-
-          <Link
-            href="#about"
-            onClick={onClose}
-            className="hover:text-[#EDFF81] transition-colors text-lg"
-          >
-            About
-          </Link>
-
-          <Link
-            href="#contact"
-            onClick={onClose}
-            className="hover:text-[#EDFF81] transition-colors text-lg"
-          >
-            Contact Us
-          </Link>
+          {navLinks.map(({ href, label }) => (
+            <Link key={href} href={href} className="hover:text-[#EDFF81] transition-colors text-lg">
+              {label}
+            </Link>
+          ))}
 
           <button
             className="mt-8 rounded-full border border-[#EDFF8166] bg-white/10 text-white font-medium text-lg px-8 py-3 shadow-sm transition-all hover:scale-105 hover:bg-white/20 focus:outline-none focus:ring-2 focus:ring-[#EDFF81]"

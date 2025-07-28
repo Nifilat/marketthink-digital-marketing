@@ -1,12 +1,25 @@
 'use client';
+
+import { useEffect, useState } from 'react';
 import Link from 'next/link';
-import { Logo, HamburgerIcon } from '../icons';
+import { Logo, HamburgerIcon } from '@/app/icons';
 import { HeaderProps } from '@/types';
+import { navLinks } from '@/app/constants';
 
+export default function DesktopNavbar({ openSidebar, className = '' }: HeaderProps) {
+  const [isScrolled, setIsScrolled] = useState(false);
 
-export default function Header({ openSidebar, variant = 'solid', className = '' }: HeaderProps) {
-  const baseClasses = 'w-full z-50';
-  const variantClasses = variant === 'transparent' ? 'bg-transparent' : 'sticky top-0 bg-[#1A2B22]';
+  useEffect(() => {
+    const handleScroll = () => {
+      setIsScrolled(window.scrollY > 50);
+    };
+
+    window.addEventListener('scroll', handleScroll);
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
+
+  const baseClasses = 'w-full z-50 transition-colors duration-300';
+  const variantClasses = isScrolled ? 'sticky top-0 bg-[#1A2B22]' : 'absolute top-0 bg-transparent';
 
   return (
     <header className={`${baseClasses} ${variantClasses} ${className}`}>
@@ -19,25 +32,17 @@ export default function Header({ openSidebar, variant = 'solid', className = '' 
         </div>
 
         <nav className="hidden md:flex gap-8 lg:gap-12 text-white font-normal text-base">
-          <Link href="#features" className="hover:underline">
-            Features
-          </Link>
-          <Link href="#pricing" className="hover:underline">
-            Pricing
-          </Link>
-          <Link href="#about" className="hover:underline">
-            About
-          </Link>
-          <Link href="#contact" className="hover:underline">
-            Contact Us
-          </Link>
+          {navLinks.map(({ href, label }) => (
+            <Link key={href} href={href} className="hover:underline">
+              {label}
+            </Link>
+          ))}
         </nav>
 
         <button className="hidden md:block rounded-full border border-[#EDFF8166] bg-white/10 text-white font-medium text-base px-6 py-3 shadow-sm transition hover:scale-105">
           Free Trial
         </button>
 
-        {/* Hamburger for mobile */}
         <button
           className="md:hidden flex justify-center items-center w-10 h-10 rounded focus:outline-none focus:ring-2 focus:ring-white"
           aria-label="Open menu"

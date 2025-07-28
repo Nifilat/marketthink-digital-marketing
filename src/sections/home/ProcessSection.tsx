@@ -1,10 +1,9 @@
 'use client';
 import React, { useState } from 'react';
-import { ArrowRightIcon, VerticalDottedLine, GreenPyramidIcon } from '@/app/icons';
+import Image from 'next/image';
 import { dottedLine } from '@/assets';
 import { steps } from '@/app/constants';
-
-import Image from 'next/image';
+import { ArrowRightIcon, VerticalDottedLine, GreenPyramidIcon } from '@/app/icons';
 
 export default function ProcessSection() {
   const [selected, setSelected] = useState(0);

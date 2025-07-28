@@ -9,7 +9,46 @@ import {
   CircleIcon,
   TriangleIcon,
 } from '@/app/icons';
-import { facebook, twitter, instagram } from '@/assets';
+import { facebook, twitter, instagram, leftEllipse, right, left, rightEllipse } from '@/assets';
+
+export const navLinks = [
+  { href: '#features', label: 'Features' },
+  { href: '#pricing', label: 'Pricing' },
+  { href: '#about', label: 'About' },
+  { href: '#contact', label: 'Contact Us' },
+];
+
+export const heroImages = [
+  {
+    src: leftEllipse,
+    alt: 'Left Ellipse',
+    className: 'absolute left-1/20 top-1/10',
+    width: 300,
+    height: 300,
+  },
+  {
+    src: rightEllipse,
+    alt: '',
+    className: 'absolute right-0 translate-x-1/3 top-1/10',
+    width: 300,
+    height: 300,
+  },
+  {
+    src: left,
+    alt: 'Left block',
+    className:
+      'absolute left-0 bottom-0 -translate-x-[28%] translate-y-[6%] w-[27vw] min-w-[200px]',
+    width: 400,
+    height: 400,
+  },
+  {
+    src: right,
+    alt: 'Right block',
+    className: 'absolute right-0 bottom-0 translate-x-1/2 translate-y-1/10 w-[18vw] min-w-[150px]',
+    width: 300,
+    height: 300,
+  },
+];
 
 export const articles = [
   {

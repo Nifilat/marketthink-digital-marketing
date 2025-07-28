@@ -18,3 +18,7 @@ export interface HeaderProps {
   variant?: 'transparent' | 'solid';
   className?: string;
 }
+
+export interface LayoutProps {
+  children: ReactNode;
+}

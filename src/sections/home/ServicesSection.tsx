@@ -1,6 +1,5 @@
-import React from 'react';
-import { ArrowRightIcon } from '@/app/icons';
 import Image from 'next/image';
+import { ArrowRightIcon } from '@/app/icons';
 import { services } from '@/app/constants';
 import { ServiceImage } from '@/assets';
 

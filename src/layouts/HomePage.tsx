@@ -6,18 +6,17 @@ import {
   ArticleSection,
   ContactSection,
 } from '@/sections/index';
-import Footer from '@/app/components/footer/Footer';
+import Layout from './Layout';
 
 export default function HomePage() {
   return (
-    <main>
+    <Layout>
       <HeroSection />
       <PartnerSection />
       <ServicesSection />
       <ProcessSection />
       <ArticleSection />
       <ContactSection />
-      <Footer />
-    </main>
+    </Layout>
   );
 }
